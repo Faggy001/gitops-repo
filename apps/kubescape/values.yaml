@@ -1,24 +1,37 @@
-global:
-  imagePullPolicy: IfNotPresent
-
-image:
-  registry: quay.io
-  repository: kubescape/kubescape
-  tag: v1.21.0
-
-operator:
-  forceReplace: false
-
+# Kubescape capabilities
 capabilities:
   runtimeDetection: true
   continuousScan: true
 
+# Node agent
 nodeAgent:
   enabled: true
+  image:
+    registry: quay.io
+    repository: kubescape/node-agent
+    tag: v1.22.0   # updated version
 
+# Operator
+operator:
+  image:
+    registry: quay.io
+    repository: kubescape/kubescape-operator
+    tag: v1.22.0   # updated version
+
+# Prometheus metrics
 prometheus:
   enabled: true
   serviceMonitor:
     enabled: true
 
+# Force replace Job (pre/post install hook)
+forceReplace:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnami/kubectl
+    tag: 1.27.4   # valid tag to avoid ImagePullBackOff
 
+# Optional: additional cleanup jobs
+cleanup:
+  enabled: true
