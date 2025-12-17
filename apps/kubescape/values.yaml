@@ -1,0 +1,23 @@
+global:
+  clusterName: nebula-aurora
+
+operator:
+  enabled: true
+
+kubescape:
+  enabled: true
+  scanScheduler:
+    enabled: true
+    interval: "1h"
+
+nodeAgent:
+  enabled: true
+  runtimeDetection:
+    enabled: true
+
+prometheusExporter:
+  enabled: true
+  service:
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "8080"

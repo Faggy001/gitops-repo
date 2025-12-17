@@ -1,0 +1,13 @@
+route:
+  receiver: default
+  routes:
+    - matchers:
+        - severity="critical"
+      receiver: security-oncall
+
+receivers:
+  - name: default
+  - name: security-oncall
+    email_configs:
+      - to: security-oncall@company.com
+        send_resolved: true

@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kubescape-security-alerts
+  namespace: kubescape
+spec:
+  groups:
+    - name: kubescape.security
+      rules:
+        - alert: KubescapeCriticalFindings
+          expr: kubescape_security_findings{severity="critical"} > 0
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Critical security findings detected"
+            description: "Kubescape detected critical security issues in the cluster"
