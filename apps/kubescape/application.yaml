@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Faggy001/gitops-repo.git
+    repoURL: https://github.com/kubescape/helm-charts
     chart: kubescape-operator
     targetRevision: 1.21.0
     helm:
