@@ -1,0 +1,42 @@
+{
+  "uid": "kubescape-security",
+  "title": "Kubescape Security Overview",
+  "schemaVersion": 37,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Critical Findings",
+      "targets": [
+        {
+          "expr": "kubescape_findings_total{severity=\"critical\"}",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 4 }
+    },
+    {
+      "type": "stat",
+      "title": "High Findings",
+      "targets": [
+        {
+          "expr": "kubescape_findings_total{severity=\"high\"}",
+          "refId": "B"
+        }
+      ],
+      "gridPos": { "x": 6, "y": 0, "w": 6, "h": 4 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Findings Over Time",
+      "targets": [
+        {
+          "expr": "kubescape_findings_total",
+          "refId": "C"
+        }
+      ],
+      "gridPos": { "x": 0, "y": 4, "w": 12, "h": 6 }
+    }
+  ]
+}

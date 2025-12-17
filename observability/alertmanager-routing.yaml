@@ -1,13 +1,10 @@
 route:
-  receiver: default
-  routes:
-    - matchers:
-        - severity="critical"
-      receiver: security-oncall
+  receiver: "security-team"
+  matchers:
+    - severity="critical"
 
 receivers:
-  - name: default
-  - name: security-oncall
-    email_configs:
-      - to: security-oncall@company.com
-        send_resolved: true
+- name: "security-team"
+  slack_configs:
+  - channel: "#security-alerts"
+    send_resolved: true
