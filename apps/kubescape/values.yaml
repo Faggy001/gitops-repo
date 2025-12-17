@@ -1,11 +1,26 @@
+# Use local images when available (important for Minikube)
+global:
+  imagePullPolicy: IfNotPresent
+
+# Correct Kubescape image (public)
+image:
+  registry: quay.io
+  repository: kubescape/kubescape
+  tag: v1.21.0
+
+# Disable failing Helm hook job
 capabilities:
+  forceReplace: false
   runtimeDetection: true
   continuousScan: true
 
+# Enable node-level runtime detection
 nodeAgent:
   enabled: true
 
+# Enable Prometheus metrics
 prometheus:
   enabled: true
   serviceMonitor:
     enabled: true
+
