@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kubescape/helm-charts
+    repoURL: https://kubescape.github.io/helm-charts
     chart: kubescape-operator
     targetRevision: 1.21.0
     helm:
